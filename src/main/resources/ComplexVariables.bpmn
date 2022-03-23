@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0ueuvej" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="1.1.0">
+  <bpmn:process id="complexVariables" name="Complex Variables" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_18zjpzy</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_18zjpzy" sourceRef="StartEvent_1" targetRef="Activity_1dk3hoz" />
+    <bpmn:serviceTask id="Activity_1dk3hoz" name="Worker 1" camunda:type="external" camunda:topic="complex-variables">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="complex-variables" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_18zjpzy</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ealofy</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0ealofy" sourceRef="Activity_1dk3hoz" targetRef="Activity_0wksjcz" />
+    <bpmn:userTask id="Activity_0nfzez2" name="Display" camunda:formKey="">
+     
+      <bpmn:incoming>Flow_13v096e</bpmn:incoming>
+      <bpmn:outgoing>Flow_0mqo0mv</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_0pr2tr2">
+      <bpmn:incoming>Flow_0mqo0mv</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0mqo0mv" sourceRef="Activity_0nfzez2" targetRef="Event_0pr2tr2" />
+    <bpmn:serviceTask id="Activity_0wksjcz" name="Worker 2" camunda:type="external" camunda:topic="complex-variables">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="complex-variables" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0ealofy</bpmn:incoming>
+      <bpmn:outgoing>Flow_13v096e</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_13v096e" sourceRef="Activity_0wksjcz" targetRef="Activity_0nfzez2" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="complexVariables">
+      <bpmndi:BPMNEdge id="Flow_13v096e_di" bpmnElement="Flow_13v096e">
+        <di:waypoint x="500" y="117" />
+        <di:waypoint x="540" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mqo0mv_di" bpmnElement="Flow_0mqo0mv">
+        <di:waypoint x="640" y="117" />
+        <di:waypoint x="682" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ealofy_di" bpmnElement="Flow_0ealofy">
+        <di:waypoint x="360" y="117" />
+        <di:waypoint x="400" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18zjpzy_di" bpmnElement="Flow_18zjpzy">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="260" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1p1uvp0_di" bpmnElement="Activity_1dk3hoz">
+        <dc:Bounds x="260" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0wksjcz_di" bpmnElement="Activity_0wksjcz">
+        <dc:Bounds x="400" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0hcmoay_di" bpmnElement="Activity_0nfzez2">
+        <dc:Bounds x="540" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0pr2tr2_di" bpmnElement="Event_0pr2tr2">
+        <dc:Bounds x="682" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
