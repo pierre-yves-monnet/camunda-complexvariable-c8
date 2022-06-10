@@ -7,7 +7,6 @@ import com.google.gson.JsonParser;
 import io.camunda.zeebe.client.api.command.CompleteJobCommandStep1;
 import io.camunda.zeebe.client.api.response.ActivatedJob;
 import io.camunda.zeebe.client.api.worker.JobClient;
-import io.camunda.zeebe.spring.client.EnableZeebeClient;
 import io.camunda.zeebe.spring.client.annotation.ZeebeWorker;
 import org.camunda.complexvariable.c8.data.Customer;
 import org.camunda.complexvariable.c8.data.CustomerUpdate;
@@ -15,7 +14,7 @@ import org.camunda.complexvariable.c8.process.complexvariables.ComplexVariableCo
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,18 +22,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@SpringBootApplication
-@EnableZeebeClient
+@Component
 public class WorkerVariables {
     private final Logger logger = LoggerFactory.getLogger(WorkerVariables.class.getName());
 
     public static void main(String[] args) {
         SpringApplication.run(WorkerVariables.class, args);
-
     }
 
 
-    @ZeebeWorker(type = "complex-variables")
+    @ZeebeWorker(type = "complex-variables", autoComplete = true)
     public void handleWorkerVariable(final JobClient client, final ActivatedJob job) {
         logger.info("WorkerVariables.handleWorkerVariable : >>>>>>>>>>> start [" + job.getKey() + "]");
         Map<String, Object> variables = new HashMap<>();

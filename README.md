@@ -2,7 +2,7 @@
 
 In Camunda8, the Worker pattern is the only way to integrate an external system.
 
-# test it
+# Test it
 Generate a C8 Cloud Cluster, or install a local Zeebe in Docker.
 Update src/main/resources/application.properties accordingly.
 
@@ -52,9 +52,16 @@ Customer customer = job.getVariablesAsType(Customer.class);
 ````
 but then you save / get all variables of the process in the class. If you want to add a variable, you must add it in the Customer class.
 
+
+# Forms
+An embbeded form in Camunda 7  
+
 # More information
 here some information to migrate a C7 process to C8
 Using https://github.com/camunda-community-hub/camunda-platform-to-cloud-migration
 
 Here some information about the Zeebe client
 https://github.com/camunda-community-hub/spring-zeebe
+
+Create an embeded form
+https://github.com/camunda/camunda-bpm-examples/tree/master/usertask/task-form-embedded

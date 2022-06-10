@@ -1,0 +1,37 @@
+{
+  "components": [
+    {
+      "label": "FirstName",
+      "type": "textfield",
+      "id": "Field_03pf9j9",
+      "key": "DirectCustomer.getFirstName()"
+    },
+    {
+      "label": "LastName",
+      "type": "textfield",
+      "id": "Field_0q8tsf9",
+      "key": "DirectCustomer.lastName"
+    },
+    {
+      "label": "Logs",
+      "type": "textfield",
+      "id": "Field_0f04for",
+      "key": "logs"
+    },
+    {
+      "label": "DirectCustomer",
+      "type": "textfield",
+      "id": "Field_1x7perf",
+      "key": "DirectCustomer"
+    }
+  ],
+  "type": "default",
+  "id": "displayCustomer",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.0.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.0.0"
+  },
+  "schemaVersion": 4
+}
