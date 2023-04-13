@@ -23,11 +23,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Component
-public class WorkerVariables {
-    private final Logger logger = LoggerFactory.getLogger(WorkerVariables.class.getName());
+public class ComplexVariablesWorker {
+    private final Logger logger = LoggerFactory.getLogger(ComplexVariablesWorker.class.getName());
 
     public static void main(String[] args) {
-        SpringApplication.run(WorkerVariables.class, args);
+        SpringApplication.run(ComplexVariablesWorker.class, args);
     }
 
 
@@ -38,6 +38,13 @@ public class WorkerVariables {
         List<String> logs = new ArrayList<>();
         try {
             CompleteJobCommandStep1 completeJobCommandStep = client.newCompleteCommand(job.getKey());
+
+            // get information
+            String newCustomerName = (String) job.getVariablesAsMap().get(ComplexVariableConstant.PROCESS_VARIABLE_NEW_CUSTOMER_NAME);
+            if (newCustomerName!=null)
+                logs.add("New Customer Name asked["+newCustomerName+"]");
+
+
             logs.add(updateJsonBased(job, variables));
 
             // We don't want the POJO method at this moment. See below.

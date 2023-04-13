@@ -66,6 +66,9 @@
     <bpmn:serviceTask id="Activity_0wksjcz" name="Worker 2" camunda:type="external" camunda:topic="complex-variables">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="complex-variables" />
+        <zeebe:ioMapping>
+          <zeebe:input source="= directCustomer.firstName" target="newCustomerName" />
+        </zeebe:ioMapping>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0ealofy</bpmn:incoming>
       <bpmn:outgoing>Flow_13v096e</bpmn:outgoing>
